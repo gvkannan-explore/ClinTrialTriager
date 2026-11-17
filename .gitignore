@@ -1,1 +1,8 @@
 *.env
+.venv/*
+.ipynb_checkpoints/*
+/.tools/
+/.privacy-identifiers.json
+.env
+.env.*
+__pycache__/

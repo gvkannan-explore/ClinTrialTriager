@@ -1,0 +1,38 @@
+[project]
+name = "clintrial-triager"
+version = "0.1.0"
+description = "Workspace for ClinTrialTriager: monitors ClinicalTrials.gov, scores trials for research relevance with LLM agents, and triages them for patient eligibility."
+readme = "README.md"
+authors = [
+    { name = "Contributor", email = "contributor@users.noreply.github.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "mcp>=2.3.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = [
+    "med-scout",
+]
+
+[dependency-groups]
+lint = [
+    "ruff>=0.7.3",
+    "pyright>=1.1.414",
+]
+
+[tool.ruff]
+target-version = "py312"
+include = ["med-scout/src/**/*.py", "scripts/check_privacy.py", "tests/*.py"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
+include = ["med-scout/src", "scripts/check_privacy.py"]
