@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo_root=$(git rev-parse --show-toplevel)
+python3 "$repo_root/scripts/check_privacy.py" message --message-file "$1"

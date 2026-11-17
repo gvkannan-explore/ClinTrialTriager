@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -uo pipefail
+repo_root=$(git rev-parse --show-toplevel) || exit 1
+failed=0
+(cd "$repo_root" && python3 scripts/check_privacy.py identity) || failed=1
+(cd "$repo_root" && python3 scripts/check_privacy.py staged) || failed=1
+bash "$repo_root/scripts/check-staged-file-size.sh" || failed=1
+bash "$repo_root/scripts/check-secrets.sh" --staged || failed=1
+exit "$failed"
