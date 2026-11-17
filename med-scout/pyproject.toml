@@ -1,0 +1,29 @@
+[project]
+name = "med-scout"
+version = "0.1.0"
+description = "MedScout agent and MCP server that searches ClinicalTrials.gov for recruiting trials and matches them to research profiles and patients."
+readme = "README.md"
+authors = [
+    { name = "Contributor", email = "contributor@users.noreply.github.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+med-scout = "med_scout:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "fastapi>=0.162.4",
+    "jupyterlab>=4.6.6",
+    "langchain>=1.4.10",
+    "langchain-ollama>=1.1.0",
+    "langchain-openai>=1.8.0",
+    "requests>=2.34.2",
+    "rich>=15.0.0",
+    "tqdm>=4.70.1",
+]
